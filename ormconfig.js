@@ -1,7 +1,7 @@
-type: 'postgres',
+type: 'sqlite',
   {
-    username: 'postgres',
-    password: 'postgres',
+    username: 'sqlite',
+    password: 'sqlite',
     entities: ['dist/entities/*.entity.js'],
     migrations: ['dist/migrations/*.js'],
     cli: {
