@@ -8,6 +8,6 @@ export class Calc {
   @Column({ comment: '結果' })
   result: number;
 
-  @Column({ default: false, comment: 'メモ' })
+  @Column({ comment: 'メモ' })
   memo: string;
 }
