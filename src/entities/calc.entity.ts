@@ -1,7 +1,10 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Calc {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column({ comment: '計算式' })
   fomula: string;
 
