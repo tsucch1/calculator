@@ -1,4 +1,6 @@
 import { Get, Post, Body, Controller } from '@nestjs/common';
+import { CalcService } from './calc.service';
+import { Calc } from 'src/entities/calc.entity';
 
 @Controller()
 export class CalcController {
@@ -11,13 +13,15 @@ export class CalcController {
 
   @Post('/calc')
   add(
-    @Body('name') name: string,
-    @Body('description') description: string,
+    @Body('fomula') fomula: string,
+    @Body('result') result: number,
+    @Body('memo') memo: string,
   ): Promise<Calc> {
     return this.calcService.add({
       id: undefined,
-      name: name,
-      description: description,
+      fomula: fomula,
+      result: result,
+      memo: memo,
     });
   }
 }
