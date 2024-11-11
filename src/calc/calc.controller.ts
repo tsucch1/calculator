@@ -19,6 +19,7 @@ export class CalcController {
   ): Promise<Calc> {
     return this.calcService.add({
       id: undefined,
+      // undefinedはあまり使わない
       fomula: fomula,
       result: result,
       memo: memo,
