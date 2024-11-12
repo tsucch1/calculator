@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
 import { Calc } from '../entities/calc.entity';
 
 @Injectable()
@@ -17,5 +16,11 @@ export class CalcService {
 
   async findAll(): Promise<Calc[]> {
     return await this.calcRepos.find();
+  }
+
+  async undateCalc(id: string, calc: Calc): Promise<Calc> {
+    let CalcToUpdate = await this.findById(id);
+    // 更新のコード
+    return await this.calcRepos.save(newCalc);
   }
 }
