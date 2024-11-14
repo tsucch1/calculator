@@ -1,4 +1,12 @@
-import { Get, Post, Body, Controller } from '@nestjs/common';
+import {
+  Get,
+  Post,
+  Body,
+  Controller,
+  Param,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { CalcService } from './calc.service';
 import { Calc } from 'src/entities/calc.entity';
 
@@ -24,5 +32,13 @@ export class CalcController {
       result: result,
       memo: memo,
     });
+  }
+
+  // @Patch('/calc')
+  // async updateCalc ()
+
+  @Delete(':id')
+  async deleteItem(@Param() id: string): Promise<void> {
+    return await this.calcService.deleteItem(id);
   }
 }
