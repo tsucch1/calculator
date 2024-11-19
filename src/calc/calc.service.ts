@@ -5,7 +5,7 @@ import { Calc } from '../entities/calc.entity';
 
 @Injectable()
 export class CalcService {
-  calcRepository: any;
+  // calcRepository: any;
   constructor(
     @InjectRepository(Calc) private readonly calcRepos: Repository<Calc>,
   ) {}
@@ -26,6 +26,6 @@ export class CalcService {
   // }
 
   async deleteItem(id: string): Promise<void> {
-    await this.calcRepository.delete(id);
+    await this.calcRepos.delete(id);
   }
 }

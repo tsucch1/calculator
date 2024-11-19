@@ -37,7 +37,7 @@ export class CalcController {
   // @Patch('/calc')
   // async updateCalc ()
 
-  @Delete(':id')
+  @Delete('/calc')
   async deleteItem(@Param() id: string): Promise<void> {
     return await this.calcService.deleteItem(id);
   }
