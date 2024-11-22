@@ -34,11 +34,18 @@ export class CalcController {
     });
   }
 
-  // @Patch('/calc')
-  // async updateCalc ()
+  @Patch('/calc/:id')
+  async updateCalc(
+    @Param('id') id: number,
+    @Body('fomula') fomula: string,
+    @Body('result') result: number,
+    @Body('memo') memo: string,
+  ) {
+    return this.calcService.updateCalc(id, fomula, result, memo);
+  }
 
-  @Delete('/calc')
-  async deleteItem(@Param() id: string): Promise<void> {
+  @Delete('/calc/:id')
+  async deleteItem(@Param('id') id: string): Promise<void> {
     return await this.calcService.deleteItem(id);
   }
 }
