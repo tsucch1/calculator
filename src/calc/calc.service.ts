@@ -19,11 +19,25 @@ export class CalcService {
     return await this.calcRepos.find();
   }
 
-  // async undateCalc(id: string, calc: Calc): Promise<Calc> {
-  //   let CalcToUpdate = await this.findById(id);
-  //   // 更新のコード
-  //   return await this.calcRepos.save(newCalc);
-  // }
+  async updateCalc(
+    id: number,
+    fomula: string,
+    result: number,
+    memo: string,
+  ): Promise<any> {
+    // select * from calc where id=6
+    let calcToUpdate = await this.calcRepos.find({
+      where: { id: id },
+    });
+    if (calcToUpdate.length > 0) {
+      calcToUpdate[0].fomula = fomula;
+      calcToUpdate[0].result = result;
+      calcToUpdate[0].memo = memo;
+    } else {
+      return '対象データが存在しません';
+    }
+    return await this.calcRepos.save(calcToUpdate);
+  }
 
   async deleteItem(id: string): Promise<void> {
     await this.calcRepos.delete(id);
